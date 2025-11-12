@@ -1,129 +1,61 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>컴퓨터 탈출기 | Escape Computer</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- 1. 로고 섹션 -->
-  <section id="logo">
-    <canvas id="digitalCanvas"></canvas>
-    <img src="logo2.png" alt="컴퓨터 탈출기 로고" class="logo-main">
-  
-    <!-- 인트로 비디오 -->
-    <div class="intro-video">
-      <video src="intro.mp4" autoplay muted loop></video>
-    </div>
-  </section>
+/* ==============================
+   기본 세팅
+============================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { font-family:"Noto Sans KR",sans-serif; background:#02121c; color:#e0faff; scroll-behavior:smooth; line-height:1.7; overflow-x:hidden; }
 
-  <!-- 2. 개요 -->
-  <section id="overview" class="section">
-    <h2>개요</h2>
-    <p>'컴퓨터 탈출기'는 2D 도트 느낌의 액션 플랫폼 장르로 플레이어가 바이러스를 처치하면서 컴퓨터 속에서 벗어나야 하는 컨셉을 가진 게임입니다.</p>
-    <a href="game.zip" class="download-btn" download>게임 다운로드</a>
-  </section>
+/* 전체 섹션 박스 */
+.section {
+  position: relative;
+  padding: 60px 10%;
+  margin: 40px auto;
+  max-width: 1000px;
+  background: rgba(3,30,40,0.6);
+  border: 1px solid rgba(0,255,255,0.12);
+  border-radius:16px;
+  box-shadow:0 0 20px rgba(0,200,255,0.05);
+  backdrop-filter:blur(10px);
+}
 
-  <!-- 3. 기획의도 -->
-  <section id="concept" class="section">
-    <h2>기획의도</h2>
-    <p>플레이어는 점프를 정밀하게 조절하여 위로 올라가며, 플랫폼 위의 적을 싸우거나 회피하면서 최종 목표 지점에 도달해야 합니다.</p>
-    <ul class="concept-list">
-      <li><strong>세밀한 점프 컨트롤과 긴장감:</strong> 플랫폼에 따라 점프를 조절하며 몬스터라는 위험요소도 고려해야 하는 긴장감</li>
-      <li><strong>특별한 블록:</strong> 다양한 기능을 가진 블록을 분석하고 이용하거나 피하는 재미</li>
-      <li><strong>리스크 보상:</strong> 적을 회피할지 처치할지 선택하며 위험과 보상이 공존</li>
-    </ul>
-  </section>
+/* 제목 */
+.section h2 { font-size:2rem; color:#7af4ff; margin-bottom:20px; text-shadow:0 0 8px rgba(0,255,255,0.4);}
+.section p { font-size:1.1rem; color:#c9f0ff; margin-bottom:16px; }
 
-  <!-- 4. 플레이어 소개 -->
-  <section id="player" class="section">
-    <h2>플레이어 소개</h2>
-    <p>게임 그래픽을 전공하는 대학생인 플레이어는 친구와 게임을 만들던 중, 데모 버전을 실행하자 갑작스러운 오류와 함께 컴퓨터 속으로 들어가게 됩니다.<br><br>
-    친구는 클리어 포탈까지 발판을 만들어 도움을 주지만, 주인공을 갇히게 한 바이러스가 오류 발판과 몬스터를 생성하여 탈출을 방해합니다.<br><br>
-    플레이어는 '커서'라는 고유 무기를 이용해 바이러스를 퇴치하며 위로 올라가야 합니다.</p>
-  </section>
+/* 로고 섹션 */
+#logo { position:relative; min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; overflow:hidden; text-align:center; }
+#digitalCanvas { position:absolute; inset:0; z-index:0; }
 
-  <!-- 5. 개발진 -->
-  <section id="team" class="section">
-    <h2>개발진</h2>
-    <ul>
-      <li>린: 게임 기획, 아트 및 UI 디자인</li>
-      <li>newapple: 프로그래밍 총괄, 플레이어 시스템 및 전체 구조 관리</li>
-      <li>도토리를 찾아서: 몬스터 AI 및 전투 시스템 구현</li>
-    </ul>
-    <p>📧 문의: <a href="mailto:escapecomputer@gmail.com">escapecomputer@gmail.com</a></p>
-  </section>
+/* 로고 메인 */
+.logo-main {
+  width:650px; max-width:80vw; margin-bottom:28px;
+  filter: drop-shadow(0 0 25px rgba(0,255,255,0.95))
+          drop-shadow(0 0 50px rgba(0,150,255,0.65));
+  animation: glowPulse 3s ease-in-out infinite alternate;
+  z-index:2;
+}
 
-  <footer>
-    <p>© 2025 컴퓨터 탈출기. All rights reserved.</p>
-  </footer>
+@keyframes glowPulse {
+  0% { filter:drop-shadow(0 0 20px rgba(0,255,255,0.6)) drop-shadow(0 0 40px rgba(0,180,255,0.4)); transform:scale(1);}
+  50%{ filter:drop-shadow(0 0 30px rgba(0,255,255,0.8)) drop-shadow(0 0 50px rgba(0,180,255,0.6)); transform:scale(1.02);}
+  100%{filter:drop-shadow(0 0 20px rgba(0,255,255,0.6)) drop-shadow(0 0 40px rgba(0,180,255,0.4)); transform:scale(1);}
+}
 
-  <!-- 디지털 라인/입자 애니메이션 -->
-  <script>
-    const canvas = document.getElementById('digitalCanvas');
-    const ctx = canvas.getContext('2d');
-    let w, h;
+/* 인트로 비디오 */
+.intro-video { width:80%; max-width:900px; margin-top:60px; border-radius:16px; overflow:hidden; box-shadow:0 0 30px rgba(0,255,255,0.12); z-index:1;}
+.intro-video video { width:100%; height:auto; display:block; border-radius:16px; filter:brightness(0.95) contrast(1.05); }
 
-    function resizeCanvas() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight * 0.8;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+/* 기획 리스트 */
+.concept-list { list-style:none; text-align:left; display:inline-block; margin-top:1rem; padding-left:1.2rem;}
+.concept-list li { margin-bottom:0.9rem; line-height:1.6; font-size:1.05rem; position:relative;}
+.concept-list li::before { content:"▶"; position:absolute; left:-20px; color:#00d2ff; text-shadow:0 0 6px rgba(0,210,255,0.85); }
 
-    // 입자 생성
-    const particles = [];
-    const particleCount = 120;
-    for(let i=0; i<particleCount; i++){
-      particles.push({
-        x: Math.random()*w,
-        y: Math.random()*h,
-        r: Math.random()*2 + 1,
-        speed: Math.random()*0.5 + 0.2,
-        angle: Math.random()*Math.PI*2
-      });
-    }
+/* 다운로드 버튼 */
+.download-btn { display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#00c6ff,#0072ff); color:white; font-weight:700; text-decoration:none; border-radius:10px; transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 0 12px rgba(0,200,255,0.25);}
+.download-btn:hover { transform:translateY(-4px); box-shadow:0 0 28px rgba(0,220,255,0.45); }
 
-    function animate(){
-      ctx.clearRect(0,0,w,h);
-      ctx.strokeStyle = 'rgba(0,200,255,0.3)';
-      ctx.lineWidth = 1;
-      // 입자와 라인
-      for(let i=0;i<particleCount;i++){
-        let p = particles[i];
-        p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed;
+/* 팀 */
+#team ul { list-style:none; padding:0; margin:20px 0; }
+#team li { margin:6px 0; color:#bfefff; }
 
-        if(p.x> w) p.x=0;
-        if(p.x<0) p.x=w;
-        if(p.y>h) p.y=0;
-        if(p.y<0) p.y=h;
-
-        // 입자
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = 'rgba(0,220,255,0.7)';
-        ctx.fill();
-
-        // 라인 연결
-        for(let j=i+1;j<particleCount;j++){
-          let p2 = particles[j];
-          let dx = p.x - p2.x;
-          let dy = p.y - p2.y;
-          let dist = Math.sqrt(dx*dx+dy*dy);
-          if(dist<90){
-            ctx.beginPath();
-            ctx.moveTo(p.x,p.y);
-            ctx.lineTo(p2.x,p2.y);
-            ctx.strokeStyle = `rgba(0,220,255,${1 - dist/90})`;
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
-</body>
-</html>
+/* 푸터 */
+footer { text-align:center; padding:30px; font-size:0.9rem; color:#99b8d0; background:rgba(0,0,0,0.28); border-top:1px solid rgba(255,255,255,0.06); }
