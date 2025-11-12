@@ -16,7 +16,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* 전체 섹션 기본 (하단 섹션용 박스 스타일 유지) */
+/* 전체 섹션 */
 .section {
   position: relative;
   padding: 80px 10%;
@@ -27,15 +27,9 @@ html, body {
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(0, 200, 255, 0.05);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.section:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.14);
-}
-
-/* 제목 스타일 공통 */
+/* 제목 */
 .section h2 {
   font-size: 2rem;
   color: #7af4ff;
@@ -53,7 +47,7 @@ html, body {
 }
 
 /* ==============================
-   1. 로고 섹션 (타이틀: 상자 제거, 발광 유지)
+   로고 섹션
 ============================== */
 #logo {
   position: relative;
@@ -65,10 +59,15 @@ html, body {
   overflow: hidden;
   text-align: center;
   background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
-  margin-bottom: 40px;
 }
 
-/* 메인 로고 (크기 증가 + 발광 효과 복구) */
+#logo canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 메인 로고 */
 .logo-main {
   width: 650px;
   max-width: 80vw;
@@ -77,29 +76,28 @@ html, body {
           drop-shadow(0 0 50px rgba(0, 150, 255, 0.65));
   animation: glowPulse 3s ease-in-out infinite alternate;
   z-index: 2;
-  display: block;
 }
 
-/* 로고 맥동/발광 애니메이션 */
+/* 맥동 범위 감소 */
 @keyframes glowPulse {
   0% {
-    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
-            drop-shadow(0 0 30px rgba(0, 180, 255, 0.4));
+    filter: drop-shadow(0 0 20px rgba(0,255,255,0.6))
+            drop-shadow(0 0 40px rgba(0,180,255,0.4));
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 35px rgba(0, 255, 255, 0.9))
-            drop-shadow(0 0 70px rgba(0, 180, 255, 0.7));
-    transform: scale(1.03);
+    filter: drop-shadow(0 0 30px rgba(0,255,255,0.8))
+            drop-shadow(0 0 50px rgba(0,180,255,0.6));
+    transform: scale(1.02);
   }
   100% {
-    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
-            drop-shadow(0 0 30px rgba(0, 180, 255, 0.4));
+    filter: drop-shadow(0 0 20px rgba(0,255,255,0.6))
+            drop-shadow(0 0 40px rgba(0,180,255,0.4));
     transform: scale(1);
   }
 }
 
-/* 로고 바로 아래 들어가는 인트로 비디오 */
+/* 인트로 비디오 */
 .intro-video {
   width: 80%;
   max-width: 900px;
@@ -119,32 +117,7 @@ html, body {
   filter: brightness(0.95) contrast(1.05);
 }
 
-/* ==============================
-   2. 개요 섹션
-============================== */
-#overview {
-  background: rgba(3, 30, 40, 0.6);
-  border: 1px solid rgba(0, 255, 255, 0.12);
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
-  backdrop-filter: blur(10px);
-  color: #eaf6ff;
-}
-
-#overview h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #7af4ff;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
-}
-
-#overview p {
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
-  color: #c9f0ff;
-}
-
-/* 기획의도 리스트 */
+/* 개요 및 기획 리스트 */
 .concept-list {
   list-style: none;
   text-align: left;
@@ -186,18 +159,11 @@ html, body {
   box-shadow: 0 0 28px rgba(0, 220, 255, 0.45);
 }
 
-/* ==============================
-   3. 기타 섹션
-============================== */
-h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #7af4ff; }
-p, li { font-size: 1.05rem; line-height: 1.6; color: #d7f5ff; }
-
+/* 팀 */
 #team ul { list-style: none; padding: 0; margin: 20px 0; }
 #team li { margin: 6px 0; color: #bfefff; }
 
-/* ==============================
-   푸터
-============================== */
+/* 푸터 */
 footer {
   text-align: center;
   padding: 30px;
@@ -205,12 +171,4 @@ footer {
   color: #99b8d0;
   background: rgba(0,0,0,0.28);
   border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-/* ==============================
-   애니메이션 공통
-============================== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
