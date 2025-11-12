@@ -10,14 +10,12 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-for(let i=0;i<50;i++){
-  lines.push({
-    x: Math.random()*w,
-    y: Math.random()*h,
-    l: 20 + Math.random()*30,
-    speed: 1 + Math.random()*2
-  });
-}
+lines = Array.from({length:50}, () => ({
+  x: Math.random()*w,
+  y: Math.random()*h,
+  l: 20 + Math.random()*30,
+  speed: 1 + Math.random()*2
+}));
 
 function animate(){
   ctx.clearRect(0,0,w,h);
