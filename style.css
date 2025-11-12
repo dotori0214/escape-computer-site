@@ -26,16 +26,19 @@ html, body {
 /* ==============================
    1. 로고 영상 섹션
 ============================== */
-##logo {
+
+#logo {
   position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at center, #0a3d4d 0%, #001f2e 100%);
+  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
+  /* 살짝 입체감 있는 남청색~남흑색 그라데이션 */
 }
 
+/* 배경 영상은 훨씬 어둡게, 보조용으로만 */
 #logo video {
   position: absolute;
   top: 0;
@@ -43,19 +46,21 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.25; /* 영상은 살짝만 보이게 */
+  opacity: 0.15; /* 거의 보이지 않게 */
+  filter: brightness(0.5) blur(2px);
   z-index: -1;
 }
 
+/* 메인 로고 (발광 그대로 유지) */
 .logo-main {
-  width: 650px; /* 크기 조정 (1.3배 정도) */
+  width: 650px;
   max-width: 80vw;
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
-          drop-shadow(0 0 40px rgba(0, 180, 255, 0.6));
+  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.9))
+          drop-shadow(0 0 50px rgba(0, 150, 255, 0.6));
   animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
-/* 발광 효과에 살짝 맥동하는 애니메이션 */
+/* 발광 효과 애니메이션 */
 @keyframes glowPulse {
   from {
     filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
@@ -63,11 +68,12 @@ html, body {
     transform: scale(1);
   }
   to {
-    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1))
-            drop-shadow(0 0 60px rgba(0, 180, 255, 0.8));
+    filter: drop-shadow(0 0 35px rgba(0, 255, 255, 1))
+            drop-shadow(0 0 70px rgba(0, 180, 255, 0.8));
     transform: scale(1.03);
   }
 }
+
 
 /* ==============================
    2. 개요 섹션
