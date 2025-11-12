@@ -131,18 +131,28 @@ html, body {
    2. 개요 섹션 (상자 스타일 유지, 가독성 강조)
 ============================== */
 #overview {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(3, 30, 40, 0.6); /* 다른 섹션과 동일한 톤 */
+  border: 1px solid rgba(0, 255, 255, 0.12);
   border-radius: 20px;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
   backdrop-filter: blur(10px);
   color: #eaf6ff;
-  border: 1px solid rgba(0,200,255,0.06);
 }
 
-#overview h2 { font-size: 2rem; margin-bottom: 1rem; }
-#overview p { font-size: 1.1rem; margin-bottom: 1.2rem; }
+#overview h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #7af4ff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
 
-/* 기획의도 리스트 스타일 (읽기 편하게) */
+#overview p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #c9f0ff;
+}
+
+/* 기획의도 리스트 (그대로 유지 가능) */
 .concept-list {
   list-style: none;
   text-align: left;
@@ -165,7 +175,6 @@ html, body {
   color: #00d2ff;
   text-shadow: 0 0 6px rgba(0, 210, 255, 0.85);
 }
-
 /* 다운로드 버튼 (가독성 좋게) */
 .download-btn {
   display: inline-block;
