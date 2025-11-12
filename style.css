@@ -73,6 +73,21 @@ html, body {
   margin-bottom: 2rem;
 }
 
+/* 기획의도 리스트 스타일 */
+.concept-list {
+  list-style-type: "💡 "; /* 앞에 귀여운 아이콘 느낌 */
+  text-align: left;
+  display: inline-block;
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.concept-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
 /* 다운로드 버튼 */
 .download-btn {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
@@ -112,13 +127,6 @@ p, li {
 
 #team li {
   margin: 5px 0;
-}
-
-/* QR 섹션 */
-#qr img {
-  margin-top: 15px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 /* ==============================
