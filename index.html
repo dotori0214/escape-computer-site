@@ -72,7 +72,6 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    // 입자 생성
     const particles = [];
     const particleCount = 120;
     for(let i=0; i<particleCount; i++){
@@ -89,7 +88,7 @@
       ctx.clearRect(0,0,w,h);
       ctx.strokeStyle = 'rgba(0,200,255,0.3)';
       ctx.lineWidth = 1;
-      // 입자와 라인
+
       for(let i=0;i<particleCount;i++){
         let p = particles[i];
         p.x += Math.cos(p.angle) * p.speed;
@@ -100,13 +99,11 @@
         if(p.y>h) p.y=0;
         if(p.y<0) p.y=h;
 
-        // 입자
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         ctx.fillStyle = 'rgba(0,220,255,0.7)';
         ctx.fill();
 
-        // 라인 연결
         for(let j=i+1;j<particleCount;j++){
           let p2 = particles[j];
           let dx = p.x - p2.x;
