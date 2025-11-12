@@ -9,95 +9,142 @@
 
 html, body {
   font-family: "Noto Sans KR", sans-serif;
-  background: radial-gradient(circle at 50% 20%, #0a192f 0%, #030b17 100%);
-  color: #d9f2ff;
+  /* 배경: 어두운 청록 -> 남색 그라데이션 (요청하신 색감으로 복원) */
+  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
+  color: #e0faff;
   scroll-behavior: smooth;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
-/* 전체 섹션 스타일 */
+/* 전체 섹션 기본 (하단 섹션용 박스 스타일 유지) */
 .section {
-  padding: 100px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  animation: fadeIn 1s ease forwards;
+  position: relative;
+  padding: 80px 10%;
+  margin: 60px auto;
+  max-width: 1000px;
+  background: rgba(3, 30, 40, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.14);
+}
+
+/* 제목 스타일 공통 */
+.section h2 {
+  font-size: 2rem;
+  color: #7af4ff;
+  border-left: 4px solid #00e0ff;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.35);
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: #c9f0ff;
+  margin-bottom: 16px;
+  text-align: left;
 }
 
 /* ==============================
-   1. 로고 영상 섹션
+   1. 로고 섹션 (타이틀: 상자 제거, 발광 유지)
 ============================== */
 #logo {
   position: relative;
-  height: 100vh;
+  min-height: 80vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* 어두운 디지털 느낌의 배경 */
-  background: radial-gradient(circle at 50% 40%, #061a24 0%, #010810 80%);
+  text-align: center;
+  /* 타이틀 전용 배경 (요청하신 어두운 청록 계열) */
+  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
+  margin-bottom: 40px;
 }
 
-/* 배경 영상 (로고 뒤, 어두운 톤) */
-#logo video {
+/* 로고 뒤 보조 영상은 매우 희미하게 (배경처럼 보이도록) */
+#logo video.bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.2;
-  filter: brightness(0.4) blur(2px);
-  z-index: -1;
+  opacity: 0.12;
+  filter: brightness(0.45) blur(3px) contrast(1.1);
+  z-index: -2;
 }
 
-/* 메인 로고 (발광 유지) */
+/* 메인 로고 (크기 증가 + 발광 효과 복구) */
 .logo-main {
-  width: 650px;
+  width: 650px;          /* 원래 요청한 크기(약 1.3배) */
   max-width: 80vw;
-  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.9))
-          drop-shadow(0 0 50px rgba(0, 150, 255, 0.6));
+  margin-bottom: 28px;
+  filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.95))
+          drop-shadow(0 0 50px rgba(0, 150, 255, 0.65));
   animation: glowPulse 3s ease-in-out infinite alternate;
+  z-index: 2;
+  display: block;
 }
 
-/* 발광 효과 애니메이션 */
+/* 로고 맥동/발광 애니메이션 (복구된 버전) */
 @keyframes glowPulse {
   from {
-    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
-            drop-shadow(0 0 30px rgba(0, 180, 255, 0.4));
+    filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.6))
+            drop-shadow(0 0 36px rgba(0, 180, 255, 0.45));
     transform: scale(1);
   }
   to {
-    filter: drop-shadow(0 0 35px rgba(0, 255, 255, 1))
-            drop-shadow(0 0 70px rgba(0, 180, 255, 0.8));
-    transform: scale(1.03);
+    filter: drop-shadow(0 0 40px rgba(0, 255, 255, 1))
+            drop-shadow(0 0 80px rgba(0, 160, 255, 0.85));
+    transform: scale(1.035);
   }
 }
 
+/* 로고 바로 아래 들어가는 인트로 비디오 (콘텐츠로 보이게) */
+.intro-video {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.12);
+  background: rgba(0,0,0,0.25);
+  z-index: 1;
+}
+
+.intro-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  filter: brightness(0.95) contrast(1.05);
+}
+
 /* ==============================
-   2. 개요 섹션
+   2. 개요 섹션 (상자 스타일 유지, 가독성 강조)
 ============================== */
 #overview {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.45);
   backdrop-filter: blur(10px);
   color: #eaf6ff;
+  border: 1px solid rgba(0,200,255,0.06);
 }
 
-#overview h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+#overview h2 { font-size: 2rem; margin-bottom: 1rem; }
+#overview p { font-size: 1.1rem; margin-bottom: 1.2rem; }
 
-#overview p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-/* 기획의도 리스트 스타일 */
+/* 기획의도 리스트 스타일 (읽기 편하게) */
 .concept-list {
-  list-style-type: "💡 ";
+  list-style: none;
   text-align: left;
   display: inline-block;
   margin-top: 1rem;
@@ -105,50 +152,46 @@ html, body {
 }
 
 .concept-list li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.9rem;
   line-height: 1.6;
   font-size: 1.05rem;
+  position: relative;
 }
 
-/* 다운로드 버튼 */
+.concept-list li::before {
+  content: "▸";
+  position: absolute;
+  left: -20px;
+  color: #00d2ff;
+  text-shadow: 0 0 6px rgba(0, 210, 255, 0.85);
+}
+
+/* 다운로드 버튼 (가독성 좋게) */
 .download-btn {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   color: white;
-  padding: 15px 30px;
-  border-radius: 50px;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.25);
 }
 
 .download-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px rgba(0, 220, 255, 0.45);
 }
 
 /* ==============================
-   3~6. 기타 섹션 공통 스타일
+   3. 기타 섹션(플레이어/팀 등)
 ============================== */
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
+h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #7af4ff; }
+p, li { font-size: 1.05rem; line-height: 1.6; color: #d7f5ff; }
 
-p, li {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-#team ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-#team li {
-  margin: 5px 0;
-}
+#team ul { list-style: none; padding: 0; margin: 20px 0; }
+#team li { margin: 6px 0; color: #bfefff; }
 
 /* ==============================
    푸터
@@ -158,12 +201,12 @@ footer {
   padding: 30px;
   font-size: 0.9rem;
   color: #99b8d0;
-  background: rgba(0,0,0,0.3);
-  border-top: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.28);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* ==============================
-   애니메이션
+   애니메이션 공통
 ============================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
