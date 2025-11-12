@@ -9,7 +9,6 @@
 
 html, body {
   font-family: "Noto Sans KR", sans-serif;
-  /* 배경: 어두운 청록 -> 남색 그라데이션 (요청하신 색감으로 복원) */
   background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
   color: #e0faff;
   scroll-behavior: smooth;
@@ -65,21 +64,8 @@ html, body {
   align-items: center;
   overflow: hidden;
   text-align: center;
-  /* 타이틀 전용 배경 (요청하신 어두운 청록 계열) */
   background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
   margin-bottom: 40px;
-}
-
-/* 로고 뒤 보조 영상은 매우 희미하게 (배경처럼 보이도록) */
-#logo video.bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.12;
-  filter: brightness(0.45) blur(3px) contrast(1.1);
-  z-index: -2;
 }
 
 /* 메인 로고 (크기 증가 + 발광 효과 복구) */
@@ -94,7 +80,7 @@ html, body {
   display: block;
 }
 
-/* 로고 맥동/발광 애니메이션 (복구된 버전) */
+/* 로고 맥동/발광 애니메이션 */
 @keyframes glowPulse {
   0% {
     filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
@@ -113,7 +99,7 @@ html, body {
   }
 }
 
-/* 로고 바로 아래 들어가는 인트로 비디오 (콘텐츠로 보이게) */
+/* 로고 바로 아래 들어가는 인트로 비디오 */
 .intro-video {
   width: 80%;
   max-width: 900px;
@@ -122,9 +108,7 @@ html, body {
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.12);
   background: rgba(0,0,0,0.25);
   z-index: 1;
-
-  /* 여기서 마진 조정: 로고와 좀 더 떨어뜨림 */
-  margin-top: 60px; /* 기존 28px 정도에서 더 내려줌 */
+  margin-top: 60px;
 }
 
 .intro-video video {
@@ -136,10 +120,10 @@ html, body {
 }
 
 /* ==============================
-   2. 개요 섹션 (상자 스타일 유지, 가독성 강조)
+   2. 개요 섹션
 ============================== */
 #overview {
-  background: rgba(3, 30, 40, 0.6); /* 다른 섹션과 동일한 톤 */
+  background: rgba(3, 30, 40, 0.6);
   border: 1px solid rgba(0, 255, 255, 0.12);
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
@@ -160,7 +144,7 @@ html, body {
   color: #c9f0ff;
 }
 
-/* 기획의도 리스트 (그대로 유지 가능) */
+/* 기획의도 리스트 */
 .concept-list {
   list-style: none;
   text-align: left;
@@ -177,17 +161,14 @@ html, body {
 }
 
 .concept-list li::before {
-  content: "▶";  /* 💡 -> ▶ 재생 버튼으로 변경 */
+  content: "▶";  
   position: absolute;
   left: -20px;
   color: #00d2ff;
   text-shadow: 0 0 6px rgba(0, 210, 255, 0.85);
 }
 
-/* 다운로드 버튼 (가독성 좋게) */
-/* ==============================
-   다운로드 버튼 (파일 직접 다운로드)
-============================== */
+/* 다운로드 버튼 */
 .download-btn {
   display: inline-block;
   padding: 12px 28px;
@@ -205,9 +186,8 @@ html, body {
   box-shadow: 0 0 28px rgba(0, 220, 255, 0.45);
 }
 
-
 /* ==============================
-   3. 기타 섹션(플레이어/팀 등)
+   3. 기타 섹션
 ============================== */
 h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #7af4ff; }
 p, li { font-size: 1.05rem; line-height: 1.6; color: #d7f5ff; }
