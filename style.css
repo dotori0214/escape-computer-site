@@ -9,15 +9,23 @@
 
 html, body {
   font-family: "Noto Sans KR", sans-serif;
-  background: linear-gradient(to bottom, #031b24 0%, #010d14 100%);
-  color: #e0faff;
+  background: radial-gradient(circle at 50% 20%, #0a192f 0%, #030b17 100%);
+  color: #d9f2ff;
   scroll-behavior: smooth;
-  line-height: 1.7;
-  overflow-x: hidden;
+}
+
+/* 전체 섹션 스타일 */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  animation: fadeIn 1s ease forwards;
 }
 
 /* ==============================
-   1. 로고 섹션 (메인 타이틀)
+   1. 로고 영상 섹션
 ============================== */
 #logo {
   position: relative;
@@ -26,10 +34,11 @@ html, body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 40%, #05222d 0%, #010d14 80%);
+  /* 어두운 디지털 느낌의 배경 */
+  background: radial-gradient(circle at 50% 40%, #061a24 0%, #010810 80%);
 }
 
-/* 배경 영상 - 살짝 보이게 */
+/* 배경 영상 (로고 뒤, 어두운 톤) */
 #logo video {
   position: absolute;
   top: 0;
@@ -37,12 +46,12 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.15;
-  filter: brightness(0.5) blur(2px);
+  opacity: 0.2;
+  filter: brightness(0.4) blur(2px);
   z-index: -1;
 }
 
-/* 메인 로고 (발광 + 확대) */
+/* 메인 로고 (발광 유지) */
 .logo-main {
   width: 650px;
   max-width: 80vw;
@@ -51,6 +60,7 @@ html, body {
   animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
+/* 발광 효과 애니메이션 */
 @keyframes glowPulse {
   from {
     filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
@@ -65,47 +75,29 @@ html, body {
 }
 
 /* ==============================
-   2. 공통 섹션 스타일
+   2. 개요 섹션
 ============================== */
-.section {
-  position: relative;
-  padding: 80px 10%;
-  margin: 60px auto;
-  max-width: 1000px;
-  background: rgba(3, 30, 40, 0.6);
-  border: 1px solid rgba(0, 255, 255, 0.15);
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.05);
+#overview {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #eaf6ff;
 }
 
-.section:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-}
-
-/* 제목 스타일 */
-.section h2 {
+#overview h2 {
   font-size: 2rem;
-  color: #7af4ff;
-  border-left: 4px solid #00e0ff;
-  padding-left: 12px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  margin-bottom: 1rem;
 }
 
-/* 문단 */
-.section p {
+#overview p {
   font-size: 1.1rem;
-  color: #c9f0ff;
-  margin-bottom: 16px;
-  text-align: left;
+  margin-bottom: 2rem;
 }
 
-/* 리스트 (기획의도용) */
+/* 기획의도 리스트 스타일 */
 .concept-list {
-  list-style: none;
+  list-style-type: "💡 ";
   text-align: left;
   display: inline-block;
   margin-top: 1rem;
@@ -116,38 +108,38 @@ html, body {
   margin-bottom: 0.8rem;
   line-height: 1.6;
   font-size: 1.05rem;
-  position: relative;
-}
-
-.concept-list li::before {
-  content: "▸";
-  position: absolute;
-  left: -20px;
-  color: #00d2ff;
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8);
 }
 
 /* 다운로드 버튼 */
 .download-btn {
-  display: inline-block;
-  padding: 12px 28px;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
   color: white;
-  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 50px;
   text-decoration: none;
-  border-radius: 8px;
-  transition: 0.3s;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
 }
 
 .download-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 /* ==============================
-   3~5. 팀 섹션 등
+   3~6. 기타 섹션 공통 스타일
 ============================== */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+p, li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 #team ul {
   list-style: none;
   padding: 0;
@@ -156,7 +148,6 @@ html, body {
 
 #team li {
   margin: 5px 0;
-  color: #b8f6ff;
 }
 
 /* ==============================
@@ -164,12 +155,11 @@ html, body {
 ============================== */
 footer {
   text-align: center;
-  padding: 40px;
-  color: #78dfff;
+  padding: 30px;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
-  background: rgba(2, 20, 28, 0.8);
-  backdrop-filter: blur(5px);
+  color: #99b8d0;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* ==============================

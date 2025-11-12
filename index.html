@@ -7,16 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 1. 로고 영상 섹션 -->
-  <section id="logo" class="section">
-  <video autoplay muted loop playsinline>
-    <source src="logo.mp4" type="video/mp4">
-    브라우저가 영상을 지원하지 않습니다.
-  </video>
-  <img src="logo2.png" alt="컴퓨터 탈출기 로고" class="logo-main">
-  <!-- <img src="logo.png" alt="컴퓨터 탈출기 로고" class="logo-img"> -->
+  <!-- 1. 로고 섹션 -->
+  <section id="logo">
+    <img src="logo2.png" alt="컴퓨터 탈출기 로고" class="main-logo">
+  
+    <!-- 여기 밑에 영상 들어갈 자리 -->
+    <div class="intro-video">
+      <video src="intro.mp4" autoplay muted loop></video>
+    </div>
   </section>
-   
+
+
+   <!-- <img src="logo.png" alt="컴퓨터 탈출기 로고" class="logo-img"> -->
 
   <!-- 2. 개요 -->
   <section id="overview" class="section">
@@ -64,7 +66,7 @@
       newapple : 플레이어 시스템과 전반적인 구조 설계.
       도토리 : 몬스터 AI 로직 및 전투 시스템 개발.
       요런 느낌도 괜찮을지도-->
-      
+
     </ul>
     <p>📧 문의: <a href="mailto:escapecomputer@gmail.com">escapecomputer@gmail.com</a></p>
   </section>
