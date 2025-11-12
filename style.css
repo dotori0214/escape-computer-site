@@ -9,24 +9,16 @@
 
 html, body {
   font-family: "Noto Sans KR", sans-serif;
-  background: linear-gradient(180deg, #dfe9f3 0%, #ffffff 100%);
-  color: #222;
+  background: linear-gradient(to bottom, #031b24 0%, #010d14 100%);
+  color: #e0faff;
   scroll-behavior: smooth;
-}
-
-/* 전체 섹션 스타일 */
-.section {
-  padding: 100px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 /* ==============================
-   1. 로고 영상 섹션
+   1. 로고 섹션 (메인 타이틀)
 ============================== */
-
 #logo {
   position: relative;
   height: 100vh;
@@ -34,11 +26,10 @@ html, body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
-  /* 살짝 입체감 있는 남청색~남흑색 그라데이션 */
+  background: radial-gradient(circle at 50% 40%, #05222d 0%, #010d14 80%);
 }
 
-/* 배경 영상은 훨씬 어둡게, 보조용으로만 */
+/* 배경 영상 - 살짝 보이게 */
 #logo video {
   position: absolute;
   top: 0;
@@ -46,12 +37,12 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.15; /* 거의 보이지 않게 */
+  opacity: 0.15;
   filter: brightness(0.5) blur(2px);
   z-index: -1;
 }
 
-/* 메인 로고 (발광 그대로 유지) */
+/* 메인 로고 (발광 + 확대) */
 .logo-main {
   width: 650px;
   max-width: 80vw;
@@ -60,7 +51,6 @@ html, body {
   animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
-/* 발광 효과 애니메이션 */
 @keyframes glowPulse {
   from {
     filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6))
@@ -74,29 +64,48 @@ html, body {
   }
 }
 
-
 /* ==============================
-   2. 개요 섹션
+   2. 공통 섹션 스타일
 ============================== */
-#overview {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+.section {
+  position: relative;
+  padding: 80px 10%;
+  margin: 60px auto;
+  max-width: 1000px;
+  background: rgba(3, 30, 40, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#overview h2 {
+.section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+/* 제목 스타일 */
+.section h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  color: #7af4ff;
+  border-left: 4px solid #00e0ff;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-#overview p {
+/* 문단 */
+.section p {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
+  color: #c9f0ff;
+  margin-bottom: 16px;
+  text-align: left;
 }
 
-/* 기획의도 리스트 스타일 */
+/* 리스트 (기획의도용) */
 .concept-list {
-  list-style-type: "💡 "; /* 앞에 귀여운 아이콘 느낌 */
+  list-style: none;
   text-align: left;
   display: inline-block;
   margin-top: 1rem;
@@ -107,39 +116,38 @@ html, body {
   margin-bottom: 0.8rem;
   line-height: 1.6;
   font-size: 1.05rem;
+  position: relative;
+}
+
+.concept-list li::before {
+  content: "▸";
+  position: absolute;
+  left: -20px;
+  color: #00d2ff;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.8);
 }
 
 /* 다운로드 버튼 */
 .download-btn {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   color: white;
-  padding: 15px 30px;
-  border-radius: 50px;
-  text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
 }
 
 .download-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
 /* ==============================
-   3~6. 기타 섹션 공통 스타일
+   3~5. 팀 섹션 등
 ============================== */
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-p, li {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* 팀 목록 */
 #team ul {
   list-style: none;
   padding: 0;
@@ -148,6 +156,7 @@ p, li {
 
 #team li {
   margin: 5px 0;
+  color: #b8f6ff;
 }
 
 /* ==============================
@@ -155,10 +164,12 @@ p, li {
 ============================== */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 40px;
+  color: #78dfff;
   font-size: 0.9rem;
-  color: #666;
-  background: #f5f7fa;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(2, 20, 28, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 /* ==============================
