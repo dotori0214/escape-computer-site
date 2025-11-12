@@ -172,12 +172,13 @@ html, body {
 }
 
 .concept-list li::before {
-  content: "▸";
+  content: "▶";  /* 💡 -> ▶ 재생 버튼으로 변경 */
   position: absolute;
   left: -20px;
   color: #00d2ff;
   text-shadow: 0 0 6px rgba(0, 210, 255, 0.85);
 }
+
 /* 다운로드 버튼 (가독성 좋게) */
 .download-btn {
   display: inline-block;
