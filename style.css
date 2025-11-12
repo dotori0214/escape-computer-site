@@ -117,6 +117,9 @@ html, body {
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.12);
   background: rgba(0,0,0,0.25);
   z-index: 1;
+
+  /* 여기서 마진 조정: 로고와 좀 더 떨어뜨림 */
+  margin-top: 60px; /* 기존 28px 정도에서 더 내려줌 */
 }
 
 .intro-video video {
