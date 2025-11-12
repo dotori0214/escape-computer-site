@@ -9,41 +9,34 @@
 
 html, body {
   font-family: "Noto Sans KR", sans-serif;
-  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
+  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 100%);
   color: #e0faff;
   scroll-behavior: smooth;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* 전체 섹션 */
+/* 전체 섹션 공통 */
 .section {
   position: relative;
-  padding: 80px 10%;
-  margin: 60px auto;
+  padding: 60px 10%;
+  margin: 0 auto;
   max-width: 1000px;
-  background: rgba(3, 30, 40, 0.6);
-  border: 1px solid rgba(0, 255, 255, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 200, 255, 0.05);
-  backdrop-filter: blur(10px);
+  text-align: left;
 }
 
 /* 제목 */
 .section h2 {
   font-size: 2rem;
   color: #7af4ff;
-  border-left: 4px solid #00e0ff;
-  padding-left: 12px;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.35);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
 }
 
 .section p {
   font-size: 1.1rem;
   color: #c9f0ff;
   margin-bottom: 16px;
-  text-align: left;
 }
 
 /* ==============================
@@ -58,9 +51,9 @@ html, body {
   align-items: center;
   overflow: hidden;
   text-align: center;
-  background: radial-gradient(circle at 50% 40%, #062c38 0%, #02121c 80%);
 }
 
+/* 디지털 라인 캔버스 */
 #logo canvas {
   position: absolute;
   inset: 0;
@@ -78,7 +71,6 @@ html, body {
   z-index: 2;
 }
 
-/* 맥동 범위 감소 */
 @keyframes glowPulse {
   0% {
     filter: drop-shadow(0 0 20px rgba(0,255,255,0.6))
@@ -101,12 +93,11 @@ html, body {
 .intro-video {
   width: 80%;
   max-width: 900px;
+  margin-top: 60px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.12);
-  background: rgba(0,0,0,0.25);
   z-index: 1;
-  margin-top: 60px;
 }
 
 .intro-video video {
@@ -117,7 +108,7 @@ html, body {
   filter: brightness(0.95) contrast(1.05);
 }
 
-/* 개요 및 기획 리스트 */
+/* 기획 리스트 */
 .concept-list {
   list-style: none;
   text-align: left;
