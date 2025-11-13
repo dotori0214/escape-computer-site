@@ -111,13 +111,30 @@ html, body {
   z-index: 1;
 }
 
+/* ====== 인트로 비디오 조정 (PC 전용) ====== */
 .intro-video video {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 16px;
   filter: brightness(0.95) contrast(1.05);
+  max-height: 720px; /* 영상 높이 살짝 키움 */
 }
+
+/* 영상 아래 여백 추가 (PC 전용) */
+@media (min-width: 768px) {
+  .intro-video {
+    margin-bottom: 80px; /* 영상 아래 여백 추가 */
+  }
+}
+
+/* 모바일은 그대로 유지 */
+@media (max-width: 767px) {
+  .intro-video {
+    margin-bottom: 40px;
+  }
+}
+
 
 /* 디지털 라인 애니메이션 canvas */
 #digital-lines {
