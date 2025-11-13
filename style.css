@@ -217,6 +217,11 @@ p, li { font-size: 1.05rem; line-height: 1.6; color: #d7f5ff; }
 #team ul { list-style: none; padding: 0; margin: 20px 0; }
 #team li { margin: 6px 0; color: #bfefff; }
 
+/* 이메일 색상 변경 가능 */
+.email-link {
+    color: #ffb6ff; /* 원하는 색으로 변경 */
+    text-decoration: underline;
+
 /* ==============================
    푸터
 ============================== */
